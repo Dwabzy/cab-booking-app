@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("api/user")
 //Check for role annotation
-@PreAuthorize("hasRole('USER')")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -38,6 +37,7 @@ public class UserController {
     }
 
     @GetMapping("/profile")
+    @PreAuthorize("hasRole('USER')")
     public @ResponseBody
     ResponseEntity<?> getUserByEmail(Authentication authentication) {
         return ResponseEntity.ok(userRepository.findByEmail(authentication.getName()));
@@ -45,6 +45,7 @@ public class UserController {
 
     // Update Preferences
     @PutMapping("/preferences")
+    @PreAuthorize("hasRole('USER')")
     public @ResponseBody
     ResponseEntity<?> updatePreferences(Authentication authentication, @RequestBody CustomerRidePreferences preferences) {
         User currentUser = userRepository.findByEmail(authentication.getName());
