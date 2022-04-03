@@ -1,0 +1,210 @@
+_id: spc_eae551006f1845ecac340aaa8b69c33a
+type: ApiSpec
+parentId: wrk_37ab7eac9f9141ea951bf2780bab5fa1
+modified: 1649004693049
+created: 1648911934685
+fileName: cab-booking-app.yaml
+contents: |
+  # openapi: 3.0.3
+  # info:
+  #   title: CabBookingApp
+  #   description: API for implementing the Cab Booking App
+  #   version: 0.1.0
+  # servers:
+  # - url: http://localhost:8080/api
+  #   description: CabBookingAPI
+
+  # paths:
+  #   "/login":
+  #    post:
+  #      tags: ["user"]
+  #      summary: Login User
+  #      responses:
+  #        "200":
+  #          description: Login Successful
+  #          content:
+  #            application/json:
+  #              schema:
+  #                 $ref: "#/components/schemas/login-credentials"
+  #   "/user/register":
+  #     post:
+  #       tags: ["user"]
+  #       summary: Register User
+  #       responses:
+  #         "200":
+  #           description: Signup Successful
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/user"
+  #   "/user/profile":
+  #     get:
+  #       tags: ["user"]
+  #       summary: Get User
+  #       responses:
+  #         "200":
+  #           description: All users received 
+  #   "/user/location":
+  #     get:
+  #       tags: ["location"]
+  #       summary: Get Location of User
+  #       responses:
+  #         "200":
+  #           description: Location of user received
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/email"
+  #     put:
+  #       tags: ["location"]
+  #       summary: Update Saved Locations of User
+  #       responses:
+  #         "200":
+  #           description: Locations updated
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/locations"
+  #     delete:
+  #       tags: ["location"]
+  #       summary: Delete a location
+  #       responses:
+  #         "200":
+  #           description: Location deleted
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/locations"
+  #   "/vehicle":
+  #     get:
+  #       tags: ["vehicle"]
+  #       summary: Get Vehicle
+  #       responses:
+  #         "200":
+  #           description: Vehicle received
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/email"
+  #     post:
+  #       tags: ["vehicle"]
+  #       summary: Create new Vehicle entry
+  #       responses:
+  #         "200":
+  #           description: Vehicle Added
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/email"
+  #     put:
+  #       tags: ["vehicle"]
+  #       summary: Update existing Vehicle
+  #       responses:
+  #         "200":
+  #           description: Vehicle updated
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/locations"
+  #     delete:
+  #       tags: ["vehicle"]
+  #       summary: Delete a vehicle
+  #       responses:
+  #         "200":
+  #           description: Vehicle deleted
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/locations"
+  #   "/vehicle/all":
+  #     get:
+  #       tags: ["vehicle"]
+  #       summary: Get All Vehicles
+  #       responses:
+  #         "200":
+  #           description: All vehicles received
+  #           content:
+  #             application/json:
+  #               schema:
+  #                 $ref: "#/components/schemas/email"
+
+
+
+
+
+  # components:
+  #   schemas:
+  #     login-credentials:
+  #       type: object
+  #       properties:
+  #         email:
+  #           type: string
+  #           description: Email Id of the user
+  #           example: example@gmail.com
+  #         password:
+  #           type: string
+  #           description: Password of the user
+  #           example: examplePW
+  #     user:
+  #       type: object
+  #       properties:
+  #         firstName:
+  #           type: string
+  #           description: First name of the user
+  #           example: FirstName
+  #         lastName:
+  #           type: string
+  #           description: Last name of the user
+  #           example: LastName
+  #         phoneNumbers:
+  #           type: array
+  #           description: Phone numbers of the user
+  #           example: ["9999999999", "9888888888"]
+  #         email:
+  #           type: string
+  #           description: Email Id of the user
+  #           example: example@gmail.com
+  #         password:
+  #           type: string
+  #           description: Password of the user
+  #           example: example@gmail.com
+  #         roles:
+  #           type: array
+  #           description: User's role. Can be Admin / Driver / User
+  #           example: [Admin, User]
+  #         locations:
+  #           type: array
+  #           description: Saved Locations
+  #           example: [{
+  #             street: "StreeName",
+  #             city: "CityName",
+  #             state: "StateName",
+  #             zipCode: "ZipCode"
+  #             }]
+  #     email:
+  #       type: object
+  #       properties:
+  #         email:
+  #             type: string
+  #             description: Email Id of the user
+  #             example: example@gmail.com
+  #     locations:
+  #       type: object
+  #       properties:
+  #         email:
+  #           type: string
+  #           description: Email Id of the user
+  #           example: example@gmail.com
+  #         locations:
+  #           type: array
+  #           description: Array of Location objects
+  #           example: [{
+  #             "name": "home",
+  #             "address": {
+  #               street: "StreeName",
+  #               city: "CityName",
+  #               state: "StateName",
+  #               zip: "ZipCode"
+  #             }
+  #           }]
+contentType: yaml

@@ -1,0 +1,53 @@
+_id: req_3fe8347436dc4d2e9b2910e0d96e2ebc
+type: Request
+parentId: fld_cfe906ac982a4e8b8756e456862dd918
+modified: 1649014701868
+created: 1648979677025
+url: "{{ base_url }}/rides/book"
+name: Book Ride
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"pickupAddress": {
+    			"street": "StreeName",
+    			"city": "CityName",
+    			"state": "StateName",
+    			"zip": "ZipCode"
+    		}, 
+    	"dropAddress": {
+    			"street": "DropStreet",
+    			"city": "DropCity",
+    			"state": "DropState",
+    			"zip": "DropZipCode"
+    		},
+    	"noOfPassengers": 3,
+    	"preferences": {
+    		"paymentMethod": "cash",
+    		"rideExperience": "silent",
+    		"vehicleType": "comfortable",
+    		"vehicle": "small"
+    	},
+    	"bookingType": "now"
+    }
+parameters: []
+headers:
+  - id: pair_b6e01daa886f48f18be3682a8dbb5005
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc3ByYWdhZGVlc2hAZ21haWwuY29tIiwiZXhwIjoxNjQ5MDI5Mzg0LCJpYXQiOjE2NDkwMTEzODR9._Yqp0C-xK6Tn8AY4U7csrsoF-ycaMcGcv7zGQNUH9cmTjslHZUbaYS1OSuaXK54g5CM91z59uSUbB0qB-tNkBg
+    description: ""
+  - name: Content-Type
+    value: application/json
+    id: pair_64352acc253a462288fcb2c275ab27ae
+authentication: {}
+metaSortKey: -1648979677025
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

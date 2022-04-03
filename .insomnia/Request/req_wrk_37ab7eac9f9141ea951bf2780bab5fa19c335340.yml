@@ -1,0 +1,34 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa19c335340
+type: Request
+parentId: fld_04ce069784a24f208d27486f435b4aff
+modified: 1648991420372
+created: 1648919335249
+url: "{{ base_url }}/vehicle"
+name: Get Vehicle
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"id": "624953b10d53584c0ba449aa"
+    }
+parameters: []
+headers:
+  - id: pair_5adc31b1170f449cba4ecda51085e922
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkcml2ZXJAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTk0OTA3LCJpYXQiOjE2NDg5NzY5MDd9.nvT1pxDkm4YjF28j2jUJeYCT7JBh64WERdj4RicM3ERRZNIJH4Uj-KbBmFLAPjkhV2IndcIT8B0Egk0EheCcBw
+    description: ""
+  - name: Content-Type
+    value: application/json
+    id: pair_2458115b69bc4c2fa07c95faa5d33988
+authentication: {}
+metaSortKey: -1648919335249
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

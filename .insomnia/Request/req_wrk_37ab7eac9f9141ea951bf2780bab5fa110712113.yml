@@ -1,0 +1,34 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa110712113
+type: Request
+parentId: fld_bd4ae8d625e744e6af0aa5a452ec4f05
+modified: 1648968467862
+created: 1648919401853
+url: "{{ base_url }}/user/location"
+name: Delete a location
+description: ""
+method: DELETE
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "work"
+    }
+parameters: []
+headers:
+  - id: pair_f4ab64f32c1b4302b6cec99150ca8adc
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc3ByYWdhZGVlc2hAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTg1ODI5LCJpYXQiOjE2NDg5Njc4Mjl9.Xyn7JSMTyFfQcGx2FzMtAqP_d__66L1As0A4OiczFKWnxhzznYq1nwf2mOzb2ADiD0Ma5JTiNGoa1aDvY44RHg
+    description: ""
+  - name: Content-Type
+    value: application/json
+    id: pair_9f7bd703f48a422287936b0ea849d937
+authentication: {}
+metaSortKey: -1648919187463
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
