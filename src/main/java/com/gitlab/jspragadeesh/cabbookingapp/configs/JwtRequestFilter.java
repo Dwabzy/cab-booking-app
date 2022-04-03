@@ -1,12 +1,11 @@
 package com.gitlab.jspragadeesh.cabbookingapp.configs;
 
-import com.gitlab.jspragadeesh.cabbookingapp.services.PersonDetailsService;
+import com.gitlab.jspragadeesh.cabbookingapp.services.UserService;
 import com.gitlab.jspragadeesh.cabbookingapp.utility.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -20,12 +19,12 @@ import java.io.IOException;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
-    private final PersonDetailsService personDetailsService;
+    private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    public JwtRequestFilter(PersonDetailsService personDetailsService, JwtTokenUtil jwtTokenUtil) {
-        this.personDetailsService = personDetailsService;
+    public JwtRequestFilter(UserService userService, JwtTokenUtil jwtTokenUtil) {
+        this.userService = userService;
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
@@ -34,7 +33,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String header = request.getHeader("Authorization");
         String username = null;
         String token = null;
-        System.out.println("Filter");
         if (header != null && header.startsWith("Bearer ")) {
             token = header.substring(7);
             try{
@@ -44,19 +42,16 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             } catch (ExpiredJwtException e){
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token expired");
             }
-        } else {
-            System.out.println("No token");
         }
 
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
-            UserDetails userDetails = this.personDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = this.userService.loadUserByUsername(username);
             if(this.jwtTokenUtil.validateToken(token, userDetails)){
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                 // Set Context if valid token
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-                System.out.println("Authenticated (Filter): " + SecurityContextHolder.getContext().getAuthentication().getPrincipal());
             }
         }
 

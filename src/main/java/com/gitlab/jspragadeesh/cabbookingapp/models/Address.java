@@ -1,6 +1,8 @@
 package com.gitlab.jspragadeesh.cabbookingapp.models;
 
-public class Address{
+import java.io.Serializable;
+
+public class Address implements Serializable {
     private String street;
     private String city;
     private String state;
@@ -15,6 +17,16 @@ public class Address{
         this.city = city;
         this.state = state;
         this.zip = zip;
+    }
+
+    @Override
+    public String toString(){
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                '}';
     }
 
     public String getStreet(){
