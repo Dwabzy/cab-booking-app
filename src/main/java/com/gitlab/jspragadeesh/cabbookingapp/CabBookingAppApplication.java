@@ -3,6 +3,7 @@ package com.gitlab.jspragadeesh.cabbookingapp;
 import com.gitlab.jspragadeesh.cabbookingapp.models.Coordinates;
 import com.gitlab.jspragadeesh.cabbookingapp.models.Node;
 import com.gitlab.jspragadeesh.cabbookingapp.repositories.NodeRepository;
+import com.gitlab.jspragadeesh.cabbookingapp.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

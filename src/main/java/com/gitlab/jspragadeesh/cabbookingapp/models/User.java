@@ -34,8 +34,6 @@ public class User {
     private CustomerRidePreferences customerRidePreferences;
     private DriverRidePreferences driverRidePreferences;
 
-
-
     public User(String firstName, String lastName, List<String> phoneNumbers, String email, String password,
                 Set<String> roles, List<Location> locations, CustomerRidePreferences customerRidePreferences) {
         this.id = UUID.randomUUID().toString();

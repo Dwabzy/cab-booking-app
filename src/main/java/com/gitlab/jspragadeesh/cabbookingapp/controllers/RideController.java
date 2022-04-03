@@ -15,9 +15,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
 
 @RestController
 @CrossOrigin
@@ -72,7 +73,8 @@ public class RideController {
         List<Node> nodes = nodeRepository.findAll();
 
         // Get K nearest Nodes
-        System.out.println("User " + pickUpCords);
+        System.out.println("User Pickup " + pickUpCords);
+        System.out.println("User Drop " + dropCords);
         List<Node> closestNodes = pickUpCords.findNearestNodes(nodes, 3);
 
 
@@ -102,6 +104,28 @@ public class RideController {
             return ResponseEntity.badRequest().body("You have not registered a vehicle");
         }
 
-        return null;
+        // Get all rides from the k closest nodes to the driver
+        List<Node> nodes = nodeRepository.findAll();
+        Coordinates driverCords = new Coordinates(Math.random()*100, Math.random()*100);
+        List<Node> closestNodes = driverCords.findNearestNodes(nodes, 3);
+
+
+        // Find all rides from all the nodes that are closest to the driver
+        List<Ride> rideList = closestNodes.stream().map(Node::getRides).flatMap(List::stream).collect(Collectors.toList());
+
+        for(Ride ride : rideList){
+            System.out.println(ride.getId());
+        }
+
+        // Remove duplicate Rides using Id (Due to adding ride to multiple nodes)
+        Set<Ride> rideSet = new HashSet<>(rideList);
+        List<Ride> rides = new ArrayList<>(rideSet);
+
+        // TODO: Filter rides based on the preferences
+
+        // Filter rides that are PENDING
+        List<Ride> pendingRides = rides.stream().filter(ride -> ride.getStatus().equals("PENDING")).collect(Collectors.toList());
+
+        return ResponseEntity.ok(pendingRides);
     }
 }

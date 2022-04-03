@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -37,6 +39,7 @@ public class Ride {
     private String status;
     private Amount rideAmount;
     private CustomerRidePreferences customerRidePreferences;
+    @DBRef private Vehicle vehicle;
 
     public Ride(User customer, Coordinates pickupAddress, Coordinates dropAddress, Double distance, Integer noOfPassengers, CustomerRidePreferences customerRidePreferences) {
         this.id = UUID.randomUUID().toString();
@@ -47,7 +50,23 @@ public class Ride {
         this.customerRidePreferences = customerRidePreferences;
         this.distance = distance;
         this.bookingTime = new Date();
-        this.status = "booked";
+        this.status = "PENDING";
         this.rideAmount = new Amount();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Ride ride = (Ride) o;
+
+        return this.id.equals(ride.id);
+    }
+
+    // Override hashCode() to prevent duplicate rides
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
     }
 }
