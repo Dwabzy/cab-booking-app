@@ -1,0 +1,41 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa14700ae93
+type: Request
+parentId: fld_04ce069784a24f208d27486f435b4aff
+modified: 1648977959721
+created: 1648919335247
+url: "{{ base_url }}/vehicle"
+name: Create new Vehicle entry
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"driverId": "",
+    	"ownerId": "",
+    	"type": "small",
+    	"features": ["comfortable", "environment-friendly"],
+    	"plateNumber": "TN 02 AY 9999",
+    	"model": "Alto K10",
+    	"brand": "Maruti Suzuki",
+    	"status": "good"
+    }
+parameters: []
+headers:
+  - id: pair_9e920dab002e4e178c79a564643ee21c
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2FienlAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTg5NjYwLCJpYXQiOjE2NDg5NzE2NjB9.HkvP0DaMOHYKitEw3P44tOtl7MdC4nv-7kTvQ9ll7HFPA5KSEYDCd6w9UB0_a6N9gG9ARw0dkQ9cEHyCCEnhOw
+    description: ""
+  - name: Content-Type
+    value: application/json
+    id: pair_ed16e7a613514eabaaf971890b81e5bf
+authentication: {}
+metaSortKey: -1648919335349
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

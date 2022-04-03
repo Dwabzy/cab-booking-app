@@ -1,0 +1,34 @@
+_id: req_8ab5381eb3844037ace0a57709f0768f
+type: Request
+parentId: fld_cfe906ac982a4e8b8756e456862dd918
+modified: 1649014713064
+created: 1649000735375
+url: "{{ base_url }}/rides/find-ride"
+name: Find Rides
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_077e504cd50b497fbbf48905e4a11d5f
+  - id: pair_9aa63e71cdf64375a7eab9e7d236bac4
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkcml2ZXJAZ21haWwuY29tIiwiZXhwIjoxNjQ5MDIzNDgzLCJpYXQiOjE2NDkwMDU0ODN9.PmywCatXWJiFbMhEj-OUz32RaDBZLB1P2dKcKgWe3KdrpSMlF2L2_uSJJcBBcQ510cxkFVIgkRCjyw8Jk-LUfw
+    description: ""
+authentication: {}
+metaSortKey: -1649000735375
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

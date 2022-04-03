@@ -1,0 +1,30 @@
+_id: req_990a444d0f5443dd94b732d45c3cdb1c
+type: Request
+parentId: fld_9581a2c99a3647aaba7eb9d1ceeeeb30
+modified: 1648991414684
+created: 1648970127770
+url: "{{ base_url }}/login"
+name: Login Admin
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"email": "dwabzy@gmail.com",
+    	"password": "Dwabzy123"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_191e79b6288d4f0bb4aa1a34b89dc69c
+authentication: {}
+metaSortKey: -1648970127770
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

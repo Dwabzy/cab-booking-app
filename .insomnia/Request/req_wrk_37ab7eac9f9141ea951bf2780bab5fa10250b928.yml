@@ -1,0 +1,42 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa10250b928
+type: Request
+parentId: fld_bd4ae8d625e744e6af0aa5a452ec4f05
+modified: 1649005383253
+created: 1648919401855
+url: "{{ base_url }}/user/location"
+name: Update Saved Locations of User
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"locations": [{
+    		"name": "work",
+    		"address": {
+    			"street": "StreeName",
+    			"city": "CityName",
+    			"state": "StateName",
+    			"zip": "ZipCode"
+    		}
+    	}]
+    }
+parameters: []
+headers:
+  - id: pair_0d398619462b49c3b5f64ef33253e238
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc3ByYWdhZGVlc2hAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTg1ODI5LCJpYXQiOjE2NDg5Njc4Mjl9.Xyn7JSMTyFfQcGx2FzMtAqP_d__66L1As0A4OiczFKWnxhzznYq1nwf2mOzb2ADiD0Ma5JTiNGoa1aDvY44RHg
+    description: ""
+  - name: Content-Type
+    value: application/json
+    id: pair_c38226a2ebfd4541a33796d374536d5e
+authentication: {}
+metaSortKey: -1648919187513
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

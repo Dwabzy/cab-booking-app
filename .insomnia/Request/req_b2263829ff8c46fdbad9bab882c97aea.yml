@@ -1,0 +1,30 @@
+_id: req_b2263829ff8c46fdbad9bab882c97aea
+type: Request
+parentId: fld_9581a2c99a3647aaba7eb9d1ceeeeb30
+modified: 1648977641050
+created: 1648977607402
+url: "{{ base_url }}/login"
+name: Login Driver2
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"email": "driver2@gmail.com",
+    	"password": "driver"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1a6a5560e30f403d9a00244014d24e26
+authentication: {}
+metaSortKey: -1648944717647
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
