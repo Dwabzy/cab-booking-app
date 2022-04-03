@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.sql.Driver;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -20,6 +21,7 @@ public class User {
     private String firstName;
     private String lastName;
     private List<String> phoneNumbers;
+    private String gender; // Male | Female | Other
     @Indexed(unique = true)
     @JsonProperty(required = true)
     private String email;
@@ -27,9 +29,15 @@ public class User {
     private String password;
     private Set<String> roles;
     private List<Location> locations;
+    private Double rating;
+    private Integer ratingCount;
+    private CustomerRidePreferences customerRidePreferences;
+    private DriverRidePreferences driverRidePreferences;
 
 
-    public User(String firstName, String lastName, List<String> phoneNumbers, String email, String password, Set<String> roles, List<Location> locations) {
+
+    public User(String firstName, String lastName, List<String> phoneNumbers, String email, String password,
+                Set<String> roles, List<Location> locations, CustomerRidePreferences customerRidePreferences) {
         this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,6 +46,7 @@ public class User {
         this.password = password;
         this.roles = roles;
         this.locations = locations;
+        this.customerRidePreferences = customerRidePreferences;
     }
 
     public Location getLocationByName(String name) {

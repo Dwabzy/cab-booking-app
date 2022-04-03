@@ -17,7 +17,7 @@ public class Vehicle {
     private String id;
     private String driverId;
     private String ownerId;
-    private String type;
+    private String type; // small = 2 seater | medium = 4 seater | large = 6 seater
     private List<String> features;
     @JsonProperty(required = true)
     private String plateNumber;

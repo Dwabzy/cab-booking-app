@@ -8,9 +8,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 
@@ -19,9 +21,10 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("api/user/location")
+@PreAuthorize("hasRole('USER')")
 public class LocationController {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public LocationController(UserRepository userRepository) {

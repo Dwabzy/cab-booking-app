@@ -1,23 +1,25 @@
 package com.gitlab.jspragadeesh.cabbookingapp.controllers;
 
+import com.gitlab.jspragadeesh.cabbookingapp.models.CustomerRidePreferences;
+import com.gitlab.jspragadeesh.cabbookingapp.models.RidePreferences;
 import com.gitlab.jspragadeesh.cabbookingapp.models.User;
 import com.gitlab.jspragadeesh.cabbookingapp.repositories.UserRepository;
-import com.mongodb.DuplicateKeyException;
-import com.mongodb.MongoWriteException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @CrossOrigin
 @RequestMapping("api/user")
+//Check for role annotation
+@PreAuthorize("hasRole('USER')")
 public class UserController {
 
-    private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
@@ -41,6 +43,13 @@ public class UserController {
         return ResponseEntity.ok(userRepository.findByEmail(authentication.getName()));
     }
 
-
-
+    // Update Preferences
+    @PutMapping("/preferences")
+    public @ResponseBody
+    ResponseEntity<?> updatePreferences(Authentication authentication, @RequestBody CustomerRidePreferences preferences) {
+        User currentUser = userRepository.findByEmail(authentication.getName());
+        currentUser.setCustomerRidePreferences(preferences);
+        userRepository.save(currentUser);
+        return ResponseEntity.ok("Preferences updated successfully");
+    }
 }

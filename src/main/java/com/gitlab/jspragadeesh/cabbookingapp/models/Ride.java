@@ -4,25 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 public class Ride {
-    private static class RideID {
-        @Indexed
-        private String userId;
-        @Indexed
-        private String vehicleId;
-
-        public RideID(String userId, String vehicleId) {
-            this.userId = userId;
-            this.vehicleId = vehicleId;
-        }
-    }
-
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -33,21 +22,32 @@ public class Ride {
     }
 
     @Id
-    private RideID id;
-    private Address pickupAddress;
-    private Address dropAddress;
+    private String id;
+    @DBRef
+    private User customer;
+    @DBRef
+    private User driver;
+    private Coordinates pickupAddress;
+    private Coordinates dropAddress;
     private Date pickUpTime;
     private Date dropTime;
+    private Date bookingTime;
+    private Integer noOfPassengers;
+    public Double distance;
     private String status;
     private Amount rideAmount;
+    private CustomerRidePreferences customerRidePreferences;
 
-    public Ride(String userId, String vehicleId, Address pickupAddress, Address dropAddress, Date pickUpTime, Date dropTime) {
-        this.id = new RideID(userId, vehicleId);
+    public Ride(User customer, Coordinates pickupAddress, Coordinates dropAddress, Double distance, Integer noOfPassengers, CustomerRidePreferences customerRidePreferences) {
+        this.id = UUID.randomUUID().toString();
+        this.customer = customer;
         this.pickupAddress = pickupAddress;
         this.dropAddress = dropAddress;
-        this.pickUpTime = pickUpTime;
-        this.dropTime = dropTime;
-        this.status = "PENDING";
+        this.noOfPassengers = noOfPassengers;
+        this.customerRidePreferences = customerRidePreferences;
+        this.distance = distance;
+        this.bookingTime = new Date();
+        this.status = "booked";
         this.rideAmount = new Amount();
     }
 }
