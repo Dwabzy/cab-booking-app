@@ -1,0 +1,34 @@
+_id: req_efee1fcbb46a44168e57ee3e865a6cb0
+type: Request
+parentId: fld_cfe906ac982a4e8b8756e456862dd918
+modified: 1649014427408
+created: 1649014321968
+url: "{{ base_url }}/driver/accept"
+name: Accept Ride
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"rideID": "630fb679-6219-4fbd-be98-cff6d4269e54"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_8a9f1ebbba0d452bba06ef8261b99b75
+  - id: pair_30a6ac09e32441089d237ce7fa91043a
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkcml2ZXJAZ21haWwuY29tIiwiZXhwIjoxNjQ5MDIzNDgzLCJpYXQiOjE2NDkwMDU0ODN9.PmywCatXWJiFbMhEj-OUz32RaDBZLB1P2dKcKgWe3KdrpSMlF2L2_uSJJcBBcQ510cxkFVIgkRCjyw8Jk-LUfw
+    description: ""
+authentication: {}
+metaSortKey: -1649014321968
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

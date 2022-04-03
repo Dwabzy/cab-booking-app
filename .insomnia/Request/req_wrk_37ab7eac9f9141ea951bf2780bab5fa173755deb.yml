@@ -1,0 +1,34 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa173755deb
+type: Request
+parentId: fld_04ce069784a24f208d27486f435b4aff
+modified: 1648977935242
+created: 1648919335244
+url: "{{ base_url }}/vehicle"
+name: Delete a vehicle
+description: ""
+method: DELETE
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"id": "62494fa3f33fb950cdf95132"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_7daabf0e40534d72a688d9526d9217a6
+  - id: pair_2d7ac831962f4c51b8c815c1f54a564e
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2FienlAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTg5NjYwLCJpYXQiOjE2NDg5NzE2NjB9.HkvP0DaMOHYKitEw3P44tOtl7MdC4nv-7kTvQ9ll7HFPA5KSEYDCd6w9UB0_a6N9gG9ARw0dkQ9cEHyCCEnhOw
+    description: ""
+authentication: {}
+metaSortKey: -1648919335399
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

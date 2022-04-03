@@ -1,0 +1,31 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa1e00683ae
+type: Request
+parentId: fld_bd4ae8d625e744e6af0aa5a452ec4f05
+modified: 1648967868269
+created: 1648919401858
+url: "{{ base_url }}/user/location"
+name: Get Location of User
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: ""
+parameters: []
+headers:
+  - id: pair_f3b295cc1c63468fba5e7d4b9c4bc8b5
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqc3ByYWdhZGVlc2hAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTg1ODI5LCJpYXQiOjE2NDg5Njc4Mjl9.Xyn7JSMTyFfQcGx2FzMtAqP_d__66L1As0A4OiczFKWnxhzznYq1nwf2mOzb2ADiD0Ma5JTiNGoa1aDvY44RHg
+    description: ""
+  - name: Content-Type
+    value: application/json
+    id: pair_6ef9d078cf754f4298d20e2ac79abb7b
+authentication: {}
+metaSortKey: -1648919187563
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,30 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa1bf0fc724
+type: Request
+parentId: fld_9581a2c99a3647aaba7eb9d1ceeeeb30
+modified: 1649011383334
+created: 1648967816551
+url: "{{ base_url }}/login"
+name: Login User
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"email": "jspragadeesh@gmail.com",
+    	"password": "smartboy1"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_f90efca2c8234f289a2f10fdc3350806
+authentication: {}
+metaSortKey: -1648913368124
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

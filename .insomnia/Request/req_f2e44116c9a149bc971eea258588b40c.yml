@@ -1,0 +1,41 @@
+_id: req_f2e44116c9a149bc971eea258588b40c
+type: Request
+parentId: fld_4c421db80f2b4177a57f27aef266b6d5
+modified: 1649005552609
+created: 1649004268087
+url: "{{ base_url }}/user/preferences"
+name: Customer Preferences Update
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"paymentMethod": "upi",
+    	"rideExperience": "silent",
+    	"gender": "male",
+    	"rating": "4",
+    	"ratingCount": "100",
+    	"vehicleType": "luxury",
+    	"vehicle": "small",
+    	"rideCount": "250"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_130bfb5cd71147be82a7c8027353a4b0
+  - id: pair_17ff1d26ba9c4aa991b4400bc8583a9b
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkcml2ZXJAZ21haWwuY29tIiwiZXhwIjoxNjQ5MDIzNDgzLCJpYXQiOjE2NDkwMDU0ODN9.PmywCatXWJiFbMhEj-OUz32RaDBZLB1P2dKcKgWe3KdrpSMlF2L2_uSJJcBBcQ510cxkFVIgkRCjyw8Jk-LUfw
+    description: ""
+authentication: {}
+metaSortKey: -1649004268087
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

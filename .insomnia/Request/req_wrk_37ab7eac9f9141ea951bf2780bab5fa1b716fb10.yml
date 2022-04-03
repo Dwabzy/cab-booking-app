@@ -1,0 +1,42 @@
+_id: req_wrk_37ab7eac9f9141ea951bf2780bab5fa1b716fb10
+type: Request
+parentId: fld_04ce069784a24f208d27486f435b4aff
+modified: 1648976911907
+created: 1648919335246
+url: "{{ base_url }}/vehicle"
+name: Update existing Vehicle
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"id": "624953b10d53584c0ba449aa",
+    	"driverId": "624881669cdb65303a10c517",
+    	"ownerId": "624881669cdb65303a10c517",
+    	"type": "small",
+    	"features": ["uncomfortable", "environment-friendly"],
+    	"platenumber": "TN 02 AY 0888",
+    	"model": "Alto K10",
+    	"brand": "Maruti Suzuki",
+    	"status": "good"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_cac7e708f4f841978dbd174ed249132d
+  - id: pair_f4853041e09f4f09a0750c77631fe279
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2FienlAZ21haWwuY29tIiwiZXhwIjoxNjQ4OTg5NjYwLCJpYXQiOjE2NDg5NzE2NjB9.HkvP0DaMOHYKitEw3P44tOtl7MdC4nv-7kTvQ9ll7HFPA5KSEYDCd6w9UB0_a6N9gG9ARw0dkQ9cEHyCCEnhOw
+    description: ""
+authentication: {}
+metaSortKey: -1648919335299
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

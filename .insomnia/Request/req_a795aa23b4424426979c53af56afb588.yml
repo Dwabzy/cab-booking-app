@@ -1,0 +1,48 @@
+_id: req_a795aa23b4424426979c53af56afb588
+type: Request
+parentId: fld_4c421db80f2b4177a57f27aef266b6d5
+modified: 1649011135046
+created: 1649005215985
+url: "{{ base_url }}/driver/preferences"
+name: Driver Preferences Update
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"paymentMethod": "cash",
+    	"rideExperience": "silent",
+    	"gender": "female",
+    	"rating": "3",
+    	"ratingCount": "100",
+    	"dropLocation": {
+    		"formatedAddress": {
+    			"street": "StreeName",
+    			"city": "CityName",
+    			"state": "StateName",
+    			"zip": "ZipCode"
+    		}
+    	},
+    	"rideDistance": "100",
+    	"rideFare": "200"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_130bfb5cd71147be82a7c8027353a4b0
+  - id: pair_17ff1d26ba9c4aa991b4400bc8583a9b
+    name: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkcml2ZXJAZ21haWwuY29tIiwiZXhwIjoxNjQ5MDIzNDgzLCJpYXQiOjE2NDkwMDU0ODN9.PmywCatXWJiFbMhEj-OUz32RaDBZLB1P2dKcKgWe3KdrpSMlF2L2_uSJJcBBcQ510cxkFVIgkRCjyw8Jk-LUfw
+    description: ""
+authentication: {}
+metaSortKey: -1649002501731
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
