@@ -29,13 +29,15 @@ public class User {
     private String password;
     private Set<String> roles;
     private List<Location> locations;
-    private Double rating;
-    private Integer ratingCount;
+    private Double rating = 0.0;
+    private Integer ratingCount = 0;
     private CustomerRidePreferences customerRidePreferences;
     private DriverRidePreferences driverRidePreferences;
+    private Double walletBalance = 0.0;
 
     public User(String firstName, String lastName, List<String> phoneNumbers, String email, String password,
-                Set<String> roles, List<Location> locations, CustomerRidePreferences customerRidePreferences) {
+                Set<String> roles, List<Location> locations, CustomerRidePreferences customerRidePreferences,
+                Double walletBalance) {
         this.id = UUID.randomUUID().toString();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,6 +47,17 @@ public class User {
         this.roles = roles;
         this.locations = locations;
         this.customerRidePreferences = customerRidePreferences;
+        this.walletBalance = walletBalance;
+    }
+
+    public User(String firstName, String lastName, String gender, List<String> phoneNumbers, String email, String password) {
+        this.id = UUID.randomUUID().toString();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.phoneNumbers = phoneNumbers;
+        this.email = email;
+        this.password = password;
     }
 
     public Location getLocationByName(String name) {
@@ -69,6 +82,13 @@ public class User {
         if(locations != null) {
             locations.remove(location);
         }
+    }
+
+    public void addRole(String role){
+        if(roles == null){
+            roles = new java.util.HashSet<>();
+        }
+        roles.add(role);
     }
 }
 

@@ -2,6 +2,7 @@ package com.gitlab.jspragadeesh.cabbookingapp.controllers;
 
 import com.gitlab.jspragadeesh.cabbookingapp.models.User;
 import com.gitlab.jspragadeesh.cabbookingapp.models.Vehicle;
+import com.gitlab.jspragadeesh.cabbookingapp.models.responses.GenericResponse;
 import com.gitlab.jspragadeesh.cabbookingapp.repositories.UserRepository;
 import com.gitlab.jspragadeesh.cabbookingapp.repositories.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,42 +34,43 @@ public class VehicleController {
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<Vehicle>> getAllVehicles(Authentication authentication) {
-        System.out.println(authentication.getAuthorities());
-        return ResponseEntity.ok().body(vehicleRepository.findAll());
+    public ResponseEntity<GenericResponse<?>> getAllVehicles(Authentication authentication) {
+        return ResponseEntity.ok().body(new GenericResponse<>(vehicleRepository.findAll()));
     }
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('DRIVER')")
-    public ResponseEntity<?> getVehicleById(Authentication authentication, @RequestBody Vehicle vehicle) {
-        try{
-            Optional<Vehicle> vehicleOptional = vehicleRepository.findById(vehicle.getId());
+    public ResponseEntity<GenericResponse<?>> getVehicleById(Authentication authentication,
+                                                             @RequestBody Vehicle vehicle) {
 
-            if(!vehicleOptional.isPresent()){
-                return ResponseEntity.badRequest().body("Vehicle with id " + vehicle.getId() + " does not exist");
-            }
-            Vehicle vehicleById = vehicleOptional.get();
-            User user = userRepository.findByEmail(authentication.getName());
-            // Check if driver is the owner of the vehicle or if user is an admin
-            if(user.getId().equals(vehicleById.getDriverId()) || authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
-                return ResponseEntity.ok().body(vehicleById);
-            } else {
-                return ResponseEntity.badRequest().body("You do not have permission to view this vehicle");
-            }
-        }catch (NoSuchElementException e){
-            return ResponseEntity.badRequest().body("Vehicle with id " + vehicle.getId() + " does not exist");
+        Optional<Vehicle> vehicleOptional = vehicleRepository.findById(vehicle.getId());
+
+        if(!vehicleOptional.isPresent()){
+            return ResponseEntity.badRequest().body(
+                    new GenericResponse<>("Vehicle with id " + vehicle.getId() + " does not exist"));
+        }
+        Vehicle vehicleById = vehicleOptional.get();
+        User user = userRepository.findByEmail(authentication.getName());
+        // Check if driver is the owner of the vehicle or if user is an admin
+        if(!(user.getId().equals(vehicleById.getDriverId())
+                || authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN")))){
+            return ResponseEntity.badRequest().body(
+                    new GenericResponse<>("You are not authorized to view this vehicle"));
         }
 
+        return ResponseEntity.ok().body(new GenericResponse<>(vehicleById));
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle) {
+    public ResponseEntity<GenericResponse<?>> createVehicle(@RequestBody Vehicle vehicle) {
         // Check if vehicle with same plateNumber exists
         if(vehicleRepository.existsByPlateNumber(vehicle.getPlateNumber())){
-            return ResponseEntity.badRequest().body(vehicle);
+            return ResponseEntity.badRequest().body(
+                    new GenericResponse<>("Vehicle with plate number " + vehicle.getPlateNumber() + " already exists"));
         }
-        return ResponseEntity.ok().body(vehicleRepository.save(vehicle));
+        vehicle.setFarePerKm(Vehicle.getFarePerKm(vehicle.getType()));
+        return ResponseEntity.ok().body(new GenericResponse<>(vehicleRepository.save(vehicle)));
     }
 
     @PutMapping

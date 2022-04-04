@@ -16,9 +16,10 @@ public class Coordinates {
 
     public Coordinates(Address address) {
         // TODO: Call GeoCode API to get the coordinates
-        // Generating Random Coordinates based on address
+
         this.formattedAddress = address;
 
+        // Generating Random Coordinates based on address
         this.latitude = Math.random() * 100;
         this.longitude = Math.random() * 100;
     }

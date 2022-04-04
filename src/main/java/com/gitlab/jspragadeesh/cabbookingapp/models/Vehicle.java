@@ -1,6 +1,7 @@
 package com.gitlab.jspragadeesh.cabbookingapp.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -25,9 +26,10 @@ public class Vehicle {
     private String model;
     private String brand;
     private String status;
+    private Double farePerKm;
 
-
-    public Vehicle(String driverId, String ownerId, String type, List<String> features, String plateNumber, String model, String brand, String status) {
+    public Vehicle(String driverId, String ownerId, String type, List<String> features, String plateNumber,
+                   String model, String brand, String status) {
         this.id = UUID.randomUUID().toString();
         this.driverId = driverId;
         this.ownerId = ownerId;
@@ -37,6 +39,19 @@ public class Vehicle {
         this.model = model;
         this.brand = brand;
         this.status = status;
+    }
+
+    public static Double getFarePerKm(String type) {
+        switch (type) {
+            case "small":
+                return 2.0;
+            case "medium":
+                return 4.0;
+            case "large":
+                return 6.0;
+            default:
+                return 0.0;
+        }
     }
 
     @Override public boolean equals(Object o) {

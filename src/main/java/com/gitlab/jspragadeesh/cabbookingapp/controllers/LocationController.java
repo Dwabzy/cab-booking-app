@@ -2,6 +2,7 @@ package com.gitlab.jspragadeesh.cabbookingapp.controllers;
 
 import com.gitlab.jspragadeesh.cabbookingapp.models.Location;
 import com.gitlab.jspragadeesh.cabbookingapp.models.User;
+import com.gitlab.jspragadeesh.cabbookingapp.models.requests.LocationsRequest;
 import com.gitlab.jspragadeesh.cabbookingapp.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,12 +33,6 @@ public class LocationController {
     }
 
 
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Data
-    public static class LocationRequest {
-        List<Location> locations;
-    }
 
     @GetMapping
     public @ResponseBody
@@ -54,7 +49,7 @@ public class LocationController {
 
     @PutMapping
     public @ResponseBody
-    ResponseEntity<String> updateLocation(Authentication authentication, @RequestBody LocationRequest locationBody) {
+    ResponseEntity<String> updateLocation(Authentication authentication, @RequestBody LocationsRequest locationBody) {
         User user = userRepository.findByEmail(authentication.getName());
         List<Location> locations = locationBody.getLocations();
         if(user == null) {

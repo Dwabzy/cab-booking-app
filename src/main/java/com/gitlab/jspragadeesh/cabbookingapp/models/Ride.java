@@ -1,27 +1,16 @@
 package com.gitlab.jspragadeesh.cabbookingapp.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 public class Ride {
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    private static class Amount {
-        private double rideFare;
-        private double tip;
-        private double total;
-    }
 
     @Id
     private String id;
@@ -38,10 +27,14 @@ public class Ride {
     public Double distance;
     private String status;
     private Amount rideAmount;
+    private Double estimatedRideAmount;
     private CustomerRidePreferences customerRidePreferences;
     @DBRef private Vehicle vehicle;
+    private String feedback;
+    private Integer rating;
 
-    public Ride(User customer, Coordinates pickupAddress, Coordinates dropAddress, Double distance, Integer noOfPassengers, CustomerRidePreferences customerRidePreferences) {
+    public Ride(User customer, Coordinates pickupAddress, Coordinates dropAddress, Double distance,
+                Double estimatedRideFare, Integer noOfPassengers, CustomerRidePreferences customerRidePreferences) {
         this.id = UUID.randomUUID().toString();
         this.customer = customer;
         this.pickupAddress = pickupAddress;
